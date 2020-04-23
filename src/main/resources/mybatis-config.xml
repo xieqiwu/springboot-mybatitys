@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties>
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </properties>
+
+    <!-- 我们使用typeAliases标签给我们自定义类起个别名。-->
+    <typeAliases>
+        <typeAlias type="com.jbit.entity.Customer" alias="_Customer" />
+        <typeAlias type="com.jbit.entity.Order" alias="_Order" />
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!-- 我们使用mapper标签指定映射文件，使用resource指定具体的路径，如果没有写绝对路径，默认的根路径就在resources目录中-->
+        <mapper resource="CustomerMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
+    </mappers>
+</configuration>

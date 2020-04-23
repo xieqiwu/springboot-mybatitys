@@ -20,8 +20,9 @@ spring:
 #mybatis配置
 mybatis:
   typeAliasesPackage: com.jbit.entity
-  mapperLocations: classpath:mapping/*.xml
-  #configLocation: classpath:/mybatis-config.xml
+#  mapperLocations: classpath:mapping/*.xml
+  configLocation: classpath:mybatis-config.xml
 
 server:
   port: 8085
+  context.path: admin
